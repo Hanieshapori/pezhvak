@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<!-- Start slider Section -->
+<section class="product-section">
+	<div class="container row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+		{% for item in products %}
+		<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+			<a class="product-item">
+				<img src="{{ item.image.url }}" class="img-fluid product-thumbnail rounded-3 ">
+				<h3 class="product-title">{{ item.Pname }}</h3>
+				در دسته {{ item.category }} <br>
+				<strong class="product-price">{{ item.price }} تومان</strong>
+			</a>
+			<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+				<div class="text-center"><a class="btn mt-auto" style="background-color: darkcyan" href="">
+					<img src="{% static 'images/cross.svg' %}" class="img-fluid">
+				</a></div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+{% endblock content %}
+
